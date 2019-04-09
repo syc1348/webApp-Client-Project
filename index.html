@@ -6,45 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Client Project Sign Up</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
-        <h1 class="brand">SRSS Sign Up Form</h1>
-        <div class="wrapper">
+        <h1 class="brand"><span>SRSS</span> Sign Up Form</h1>
+        <div class="wrapper animated fadeIn">
             <div class="company-info">
                 <h3>SRSS Sign Up Form</h3>
                 <ul>
-                    <li>44 Something Street</li>
-                    <li>(123) 456-7890</li>
-                    <li>test@srss.com</li>
+                    <li><i class="fa fa-road"></i> Something Street</li>
+                    <li><i class="fa fa-phone"></i> (123) 456-7890</li>
+                    <li><i class="fa fa-envelope"></i> test@srss.com</li>
                 </ul>
             </div>
             <div class="contact">
-                <h3>Email us</h3>
+                <h3>Sign Up</h3>
                 <form>
                     <p>
                         <label>Name</label>
-                        <input type="text" name="name">
+                        <input type="text" name="name" placeholder="Alexandra Hicks">
                     </p>
                     <p>
-                        <label>Company</label>
-                        <input type="text" name="company">
+                        <label>Student Id</label>
+                        <input type="text" name="id" placeholder="123456">
                     </p>
                     <p>
                         <label>Email</label>
-                        <input type="email" name="email">
+                        <input type="email" name="email" placeholder="poolseville2021@falcons.com">
                     </p>
                     <p>
                         <label>Phone Number</label>
                         <input type="text" name="phone">
                     </p>
-                    <p>
+                    <p class="full">
                         <label>Message</label>
                         <textarea name="message" rows="5"></textarea>
                     </p>
-                    <p>
+                    <p class="full">
                         <button>Submit</button>
                     </p>
                 </form>
