@@ -23,6 +23,12 @@ function submitForm(e) {
 
     saveMessage(name, studentID, email, phone, message);
 
+    document.querySelector('.alert').style.display = 'block';
+    setTimeout(function(){
+        document.querySelector('.alert').style.display='none';
+    }, 3000);
+
+    document.getElementById('contactForm').reset();
 }
 
 function getInputVal(id) {

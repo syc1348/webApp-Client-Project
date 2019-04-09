@@ -71,6 +71,14 @@ ul{
     outline: 0;
     transition: background-color 0.8s ease-out;
 }
+.alert{
+    text-align: center;
+    padding: 10px;
+    background: #79c879;
+    color: white;
+    margin-bottom: 10px;
+    display: none;
+}
 /*Large Screens*/
 @media(min-width: 700px){
     .wrapper{
