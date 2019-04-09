@@ -5,25 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form</title>
+    <title>Client Project Sign Up</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="container">
+        <h1 class="brand">SRSS Sign Up Form</h1>
+        <div class="wrapper">
+            <div class="company-info">
+                <h3>SRSS Sign Up Form</h3>
+                <ul>
+                    <li>44 Something Street</li>
+                    <li>(123) 456-7890</li>
+                    <li>test@srss.com</li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h3>Email us</h3>
+                <form>
+                    <p>
+                        <label>Name</label>
+                        <input type="text" name="name">
+                    </p>
+                    <p>
+                        <label>Company</label>
+                        <input type="text" name="company">
+                    </p>
+                    <p>
+                        <label>Email</label>
+                        <input type="email" name="email">
+                    </p>
+                    <p>
+                        <label>Phone Number</label>
+                        <input type="text" name="phone">
+                    </p>
+                    <p>
+                        <label>Message</label>
+                        <textarea name="message" rows="5"></textarea>
+                    </p>
+                    <p>
+                        <button>Submit</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
 
-    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyAfycB-PLdpigIcGsuqeUw2l8oi1KJSND8",
-            authDomain: "clientsignup-70a28.firebaseapp.com",
-            databaseURL: "https://clientsignup-70a28.firebaseio.com",
-            projectId: "clientsignup-70a28",
-            storageBucket: "",
-            messagingSenderId: "881183587748"
-        };
-        firebase.initializeApp(config);
-
-    </script>
 </body>
 
 </html>
