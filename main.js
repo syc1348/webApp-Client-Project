@@ -8,7 +8,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var messagesRef = firebase.database().ref('messages');
+var messagesRef = firebase.database().ref('Prom Sign Ups');
 
 //Listen for form submit
 document.getElementById('contactForm').addEventListener('submit', submitForm);

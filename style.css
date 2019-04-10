@@ -24,6 +24,9 @@ ul{
 .brand span{
     color: white;
 }
+.brand span span{
+    color: #a54df2;
+}
 .wrapper{
     box-shadow: 0 0 20px 0 rgba(72, 94, 116, 0.7)
 }
