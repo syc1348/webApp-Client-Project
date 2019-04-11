@@ -82,9 +82,6 @@ ul{
     margin-bottom: 10px;
     display: none;
 }
-#alertIn{
-    -webkit-animation-timing-function: 8s;
-}
 /*Large Screens*/
 @media(min-width: 700px){
     .wrapper{
