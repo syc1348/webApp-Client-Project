@@ -7,6 +7,7 @@ body{
     line-height: 1.6;
     font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 1em;
+    font-size: 16px;
 }
 .container{
     max-width: 1170px;
@@ -62,6 +63,7 @@ ul{
     width: 100%;
     padding: 1em;
     border: 1px solid #c9e6ff;
+    font-size: 16px;
 }
 .contact form button{
     background: #c9e6ff;
