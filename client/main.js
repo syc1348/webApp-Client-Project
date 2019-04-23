@@ -5,7 +5,7 @@ var config = {
     projectId: "clientsignup-70a28",
     storageBucket: "clientsignup-70a28.appspot.com",
     messagingSenderId: "881183587748"
-};
+};  
 firebase.initializeApp(config);
 
 var messagesRef = firebase.database().ref('Prom Sign Ups');
