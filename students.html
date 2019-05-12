@@ -1,0 +1,135 @@
+    
+
+
+
+
+<html>
+<head>
+<title> "Event Signup Form" </title>
+
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBiOVHj2BtyRIBeY6tetXv-1Jf7fUDOeiw",
+    authDomain: "samplepetapp.firebaseapp.com",
+    databaseURL: "https://samplepetapp.firebaseio.com",
+    projectId: "samplepetapp",
+    storageBucket: "samplepetapp.appspot.com",
+    messagingSenderId: "352012128473",
+    appId: "1:352012128473:web:6f16b7a6af4d678a"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+// jQuery convention for running when the document has been fully loaded:
+$(document).ready(() => {
+  const database = firebase.database();
+  $('#resetButton').click(() => {
+    console.log('Resetting the database');
+    /* remember the fake JavaScript object database from PetsApp v1?
+    const fakeDatabase = {
+      'Philip': {job: 'professor', pet: 'cat.jpg'},
+      'John': {job: 'student',   pet: 'dog.jpg'},
+      'Carol': {job: 'engineer',  pet: 'bear.jpg'}
+    };
+    */
+    database.ref('people/').remove(); // delete the entire collection
+    database.ref('people/1001').set({id: '1001', FN: 'Smrithi',LN:'Chakravarthy' });
+    
+  });
+  // use .on('value' to get notified in real-time whenever anyone
+  // on the internet updates your database. cool!
+  database.ref('people/').on('value', (snapshot) => {
+    const allUsers = snapshot.val();
+    console.log('people/ changed:', allUsers);
+    if (allUsers) {
+      $('#status').html(''); // clear the HTML
+      $('#status').append('List of users:');
+      Object.keys(allUsers).forEach((ID) => {
+        $('#status').append('<li>' + ID + ' ' + allUsers[ID].FN + ' ' + allUsers[ID].LN + '</li>');
+      });
+    }
+  });
+  $('#readButton').click(() => {
+    const key = 'people/' + $('#readIDBox').val();
+    // 'once' reads the value once from the database
+    database.ref(key).once('value', (snapshot) => {
+      const data = snapshot.val();
+      console.log('You received some data!', data);
+      if (!data) {
+        // clear the display
+        $('#IDDiv').html('');
+       
+       
+        $('#status').html('Error: could not find user: ' + key);
+        return;
+      }
+      if (data.FN && data.LN) {
+        $('#status').html(data.LN+','+data.FN);
+       
+       
+        
+      } else {
+        // clear the display
+        $('#IDDiv').html('');
+        
+        
+      }
+    });
+  });
+  $('#allUsersButton').click(() => {
+    database.ref('people/').once('value', (snapshot) => {
+      const data = snapshot.val();
+      console.log('You received some data!', data);
+      $('#status').html('All IDs: ' + Object.keys(data));
+    });
+  });
+  $('#insertButton').click(() => {
+    const ID = $('#insertIDBox').val();
+    database.ref('people/' + ID).set({
+     FN: $('#insertFN').val(),
+      LN: $('#insertLN').val()
+    });
+  });
+  $('#deleteButton').click(() => {
+    const name = $('#deleteNameBox').val();
+    database.ref('people/' + name).remove();
+  });
+});
+</script>
+
+</head>
+<body>
+  <h1>Welcome to PetsApp!</h1>
+
+  <button id="resetButton">Reset database</button>
+  <hr/>
+
+  ID: <input id="readIDBox" type="text" size="20"/>
+  <button id="readButton">Get profile</button>
+  <button id="allUsersButton">Get all usernames</button
+
+  <div id="IDDiv"></div>
+  
+
+  <hr/>
+  ID: <input id="insertIDBox" type="text" size="20"/>
+  First Name: <input id="insertFN" type="text" size="20"/>
+  Last Name: <input id="insertLN" type="text" size="20"/>
+  <button id="insertButton">Insert into database</button>
+
+  <hr/>
+  ID: <input id="deleteNameBox" type="text" size="20"/>
+  <button id="deleteButton">Delete from database</button>
+
+  <hr/>
+  <div id="status"></div>
+</body>
+</html>
